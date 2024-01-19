@@ -51,3 +51,8 @@ class Note:
     def get_note_body(self):
         txt = str(self._id) + '. ' + self._head
         return txt
+
+    def get_note_to_file(self):
+        txt = (str(self._id) + '. ' + self._head + '. ' + self._body + '. creature: ' + str(self._creation_date) +
+               '. last_edit: ' + str(self._last_edit_date) + '\n')
+        return txt
