@@ -1,8 +1,7 @@
 import datetime
 
 from model.note.Note import Note
-from model.file_working.Save_note_list import save_notelist
-from model.file_working.Load_note_list import load
+from model.file_working import file_working
 
 
 class NoteList(Note):
@@ -52,10 +51,10 @@ class NoteList(Note):
                  'note body': NoteList.note_list[i].get_body(),
                  'creation date': NoteList.note_list[i].get_creation_date(),
                  'last edit date': NoteList.note_list[i].get_last_edit_date()})
-        save_notelist(NoteList.NL)
+        file_working.save_notelist(NoteList.NL)
 
     def load_note_list():
-        NL = load()
+        NL = file_working.load()
         for i in NL:
             note = Note(i['note number'], i['note head'], i['note body'], i['creation date'], i['last edit date'])
             NoteList.note_list.append(note)
